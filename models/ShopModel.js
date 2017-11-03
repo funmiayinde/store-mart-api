@@ -6,13 +6,12 @@ var Schema = mongoose.Schema;
 var shop_schema = new Schema({
     title: {type: String},
     description: {type: String},
-    rating: {type: String},
-    country_name: {type: String},
+    rating: {type: Number},
     street_name: {type: String},
     latitude: {type: String},
     longitude: {type: String},
     created: {type: String,default: Date.now}
-}, {collection: "sign_up"});
+}, {collection: "store"});
 
 
 shop_schema.statics = {
@@ -55,8 +54,7 @@ shop_schema.statics = {
         shop.save(callback);
     }
 
-
 };
 
 var shop_model = mongoose.model("shop_model",shop_schema);
-module.exports = {sign_up: shop_model};
+module.exports = {shop: shop_model};
